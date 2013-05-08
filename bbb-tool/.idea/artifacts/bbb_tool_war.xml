@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bbb-tool:war">
+    <output-path>$PROJECT_DIR$/tool/target</output-path>
+    <root id="archive" name="bbb-tool-1.0.7-rc5.war">
+      <element id="artifact" artifact-name="bbb-tool:war exploded" />
+    </root>
+  </artifact>
+</component>
