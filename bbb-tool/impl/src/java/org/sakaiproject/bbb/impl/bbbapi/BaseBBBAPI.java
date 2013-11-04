@@ -99,8 +99,9 @@ public class BaseBBBAPI implements BBBAPI {
     public final static String APIVERSION_064 = "0.64";
     public final static String APIVERSION_070 = "0.70";
     public final static String APIVERSION_080 = "0.80";
+    public final static String APIVERSION_081 = "0.81";
     public final static String APIVERSION_MINIMUM = APIVERSION_063;
-    public final static String APIVERSION_LATEST = APIVERSION_080;
+    public final static String APIVERSION_LATEST = APIVERSION_081;
 
     protected ServerConfigurationService config;
 
@@ -128,6 +129,9 @@ public class BaseBBBAPI implements BBBAPI {
         // Initialize XML libraries
         docBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
+            docBuilderFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+            docBuilderFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+
             docBuilder = docBuilderFactory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
             logger.error("Failed to initialise BaseBBBAPI", e);
@@ -491,7 +495,6 @@ public class BaseBBBAPI implements BBBAPI {
 
         try {
             // open connection
-            //if( apiCall.equals(APICALL_CREATE) ) 
             logger.debug("doAPICall.call: " + apiCall + "?" + (query != null ? query : ""));
             
             URL url = new URL(urlStr.toString());
@@ -552,7 +555,7 @@ public class BaseBBBAPI implements BBBAPI {
 			throw new BBBException( e.getMessageKey(), e.getMessage(), e);
         } catch(IOException e) { 
             logger.debug("doAPICall.IOException: Message=" + e.getMessage());
-        	throw new BBBException(BBBException.MESSAGEKEY_INVALIDRESPONSE, e.getMessage(), e);
+            throw new BBBException(BBBException.MESSAGEKEY_UNREACHABLE, e.getMessage(), e);
         	
         } catch(SAXException e) {
             logger.debug("doAPICall.SAXException: Message=" + e.getMessage());

@@ -14,7 +14,6 @@
         <property name="serverConfigurationService" ref="org.sakaiproject.component.api.ServerConfigurationService" />
     </bean>
     
-    
 	<bean parent="org.sakaiproject.entitybroker.entityprovider.AbstractEntityProvider" 
 		class="org.sakaiproject.bbb.tool.entity.BBBMeetingEntityProvider">
         <property name="meetingManager" ref="org.sakaiproject.bbb.api.BBBMeetingManager" />
@@ -23,5 +22,11 @@
         <property name="idManager" ref="org.sakaiproject.id.api.IdManager" />
         <property name="serverConfigurationService" ref="org.sakaiproject.component.api.ServerConfigurationService" />
 	</bean>
-    
+
+    <bean id="org.sakaiproject.bbb.tool.entity.BBBMeetingEntityProducer" 
+        class="org.sakaiproject.bbb.tool.entity.BBBMeetingEntityProducer"
+        init-method="init">
+        <property name="meetingManager" ref="org.sakaiproject.bbb.api.BBBMeetingManager" />
+    </bean>
+
 </beans>
