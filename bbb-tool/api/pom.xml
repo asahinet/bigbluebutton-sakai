@@ -39,7 +39,7 @@
         <dependency>
         	<groupId>org.projectlombok</groupId>
         	<artifactId>lombok</artifactId>
-        	<version>0.10.6</version>
+		<version>${sakai.lombok.version}</version>
         </dependency> 
 	</dependencies>
 </project>
