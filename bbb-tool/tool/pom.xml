@@ -40,12 +40,17 @@
             <artifactId>entitybroker-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
+            <artifactId>${sakai.spring.artifactId}</artifactId>
         </dependency>
-        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${sakai.spring.version}</version>
+        </dependency>
+
         <!-- Kernel -->
         <dependency>
             <groupId>org.sakaiproject.kernel</groupId>
@@ -69,7 +74,12 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${sakai.lombok.version}</version>
+        </dependency>
+    </dependencies>
 	
 	<profiles>
         <profile>

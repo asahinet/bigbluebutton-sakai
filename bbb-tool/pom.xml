@@ -105,7 +105,6 @@
         <module>impl</module>
         <module>components</module>
         <module>tool</module>
-        <module>assembly</module>
     </modules>
     
     <distributionManagement>
