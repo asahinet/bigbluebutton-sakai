@@ -7,7 +7,7 @@
   	<parent>
         <groupId>org.sakaiproject.bbb</groupId>
     	<artifactId>bbb</artifactId>
-    	<version>1.0.7-rc7</version>
+    	<version>1.0.8</version>
   	</parent>
   
   	<name>BigBlueButton Tool</name>
@@ -40,12 +40,17 @@
             <artifactId>entitybroker-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
+            <artifactId>${sakai.spring.artifactId}</artifactId>
         </dependency>
-        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${sakai.spring.version}</version>
+        </dependency>
+
         <!-- Kernel -->
         <dependency>
             <groupId>org.sakaiproject.kernel</groupId>
@@ -69,7 +74,12 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${sakai.lombok.version}</version>
+        </dependency>
+    </dependencies>
 	
 	<profiles>
         <profile>
@@ -103,6 +113,7 @@
             <plugin>
                 <groupId>net.sf.alchim</groupId>
                 <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>0.7.1</version>
                 <executions>
                     <execution>
                     	<phase>${yuicompressor.phase}</phase>
